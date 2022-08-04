@@ -1,71 +1,55 @@
-import {useState} from "react";
-import {connectProvider} from "../redux/blockchain/blockchainActions";
-import {useDispatch, useSelector} from "react-redux";
-const genex = require('genex');
+import React, { useState } from "react";
+import { connectProvider } from "../redux/blockchain/blockchainActions";
+import { useDispatch, useSelector } from "react-redux";
+import SearchBar from "./SearchBar.js";
+import Grid from "@mui/material/Grid";
+import Typography from "@mui/material/Typography";
+import styled from '@emotion/styled'
+
+
 function Web3Display() {
-    const [name, setName] = useState("")
-    const [output, setOutput] = useState("")
-    const [matches,setMatches] = useState([])
-    const blockchain = useSelector((state) => state.blockchain)
-    const dispatch = useDispatch();
+  const blockchain = useSelector((state) => state.blockchain);
+  const dispatch = useDispatch();
 
-    const get_matches = (string) => {
-        try {
-            const pattern = genex(string);
-            if(pattern.count() < 1000){
-                let matches = pattern.generate();
-                let legalMatches = matches.filter(word => /^[A-Za-z\d]*$/.test(word));
-                setMatches(legalMatches)
-            }
-        } catch (error) {
-            setMatches([string])   
-        }
-    }
-    const connectToProvider = () => {
-        return (
-                <button
-                        onClick={ async (e) => {
-                            e.preventDefault();
-                            dispatch(connectProvider());
-                        }}
-                >
-                    Connect To Provider
-                </button>
-        )
-    }
+  
+  const connectToProvider = () => {
+    return (
+      <button
+        onClick={async (e) => {
+          e.preventDefault();
+          dispatch(connectProvider());
+        }}
+      >
+        Connect To Provider
+      </button>
+    );
+  };
 
-    const checkName = async () => {
-            blockchain.ethers.resolveName(name + ".eth").then(address => {
-                if(address == null){
-                    console.log("ENS Name \"" + name + ".eth\" available!")
-                    setOutput("ENS Name \"" + name + ".eth\" available!")
-                }else {
-                    console.log("ENS Name \"" + name + ".eth\" is not available. taken by: " + address);
-                    setOutput("ENS Name \"" + name + ".eth\" is not available. taken by: " + address)
-                }
-            })
-    }
-
-    return (blockchain.ethers) ?
-        (
-            <div>
-                <h3>Ethereum Name Finding Service</h3>
-                {blockchain.ethers.network ? <h5>You are connected to the {blockchain.ethers.network.name} network.</h5> : null}
-                <input type="text" onChange={event => {setName(event.target.value)
-                get_matches(event.target.value)}}/>
-                <button onClick={checkName}>Check Name</button>
-                <p>{output}</p>
-                {matches[0] !== '' && matches.length > 0 ? <p>This string yields {matches.length} combinations.</p> : null}
-                <ul>Combinations:{matches.map(match =>{
-                    return <li key={match}>{match}</li>
-                })}</ul>
-            </div>
-        ) : (
-            <div>
-                <h3>Ethereum Name Finding Service</h3>
-                {connectToProvider()}
-            </div>
-        )
+  
+  return blockchain.ethers ? (
+    
+      <Grid container alignItems="center" justifyContent="center" style={{marginTop: "20%"}} >
+        <Typography variant="h3"> Ethereum Name Finding Service</Typography>
+        
+        <Grid item xs={12}>
+          <SearchBar />
+        </Grid>
+        <Typography>
+          {blockchain.ethers.network ? (
+            <h5>
+              You are connected to the {blockchain.ethers.network.name} network.
+            </h5>
+          ) : null}
+        </Typography>
+        
+      </Grid>
+    
+  ) : (
+    <div>
+      <h3>Ethereum Name Finding Service</h3>
+      {connectToProvider()}
+    </div>
+  );
 }
 
 export default Web3Display;
