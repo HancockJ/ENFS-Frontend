@@ -12,7 +12,7 @@ export default function SearchBar() {
 <>
 <Grid container align = "center" justify = "center" alignItems = "center" >
     <Grid item xs={12}>
-    <input class="search-box" type="text" onChange={event => {
+    <input class="search-box" type="text" placeholder="Enter Regex /<expression>/" onChange={event => {
         setQuery(event.target.value)
 }
     }/>

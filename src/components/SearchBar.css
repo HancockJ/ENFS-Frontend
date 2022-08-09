@@ -1,6 +1,11 @@
-.search-box {
+input[type="text"] {
 width: 45%;
 height: 3rem;
+background-color: white;
+  background-image: url('../static/images/icons8-search-30.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 40px;
 border: 1px solid black;
     border-radius: 5px;
     
@@ -13,3 +18,24 @@ border: 1px solid black;
         
     }
     
+    input[type="text"]::-webkit-input-placeholder { /* Safari, Chrome(, Opera?) */
+        color:gray;
+        font-style:italic;
+        font-family: 'Roboto Mono', monospace;
+       }
+       input[type="text"]:-moz-placeholder { /* Firefox 18- */
+        color:gray;
+        font-style:italic;
+        font-family: 'Roboto Mono', monospace;
+       }
+       input[type="text"]::-moz-placeholder { /* Firefox 19+ */
+        color:gray;
+        font-style:italic;
+        font-family: 'Roboto Mono', monospace;
+       }
+       input[type="text"]:-ms-input-placeholder { /* IE (10+?) */
+        color:gray;
+        font-style:italic;
+        font-family: 'Roboto Mono', monospace;
+       }
+       
