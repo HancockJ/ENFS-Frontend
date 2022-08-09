@@ -19,7 +19,7 @@ export default function SearchBar() {
           
     </Grid>
     <Grid item xs={12}>
-          <Matches matches={query} />
+          <Matches string={query} />
         </Grid>
 
 

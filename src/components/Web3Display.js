@@ -5,6 +5,7 @@ import SearchBar from "./SearchBar.js";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
 import styled from '@emotion/styled'
+import "./Web3Display.css"
 
 
 function Web3Display() {
@@ -29,7 +30,7 @@ function Web3Display() {
   return blockchain.ethers ? (
     
       <Grid container alignItems="center" justifyContent="center" style={{marginTop: "20%"}} >
-        <Typography variant="h3"> Ethereum Name Finding Service</Typography>
+        <h1 class="search-bar-title" > Ethereum Name Finding Service</h1>
         
         <Grid item xs={12}>
           <SearchBar />

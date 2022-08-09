@@ -5,9 +5,8 @@ import Typography from '@mui/material/Typography';
 import {  useSelector } from "react-redux";
 import axios from 'axios';
 
-export default function Matches({matches}) {
-    const genex = require("genex");
-    const blockchain = useSelector((state) => state.blockchain);
+export default function Matches({string}) {
+    
     const [names,setNames] = useState({})
     const [output,setOutput] = useState({})
     const checkName = async (name) => {
@@ -22,33 +21,31 @@ export default function Matches({matches}) {
         console.log("ERROR")
         return null
     })
-        // return blockchain.ethers.resolveName(name + ".eth").then((address) => {
-        //   return address
-        // });
+        
       };
-      useEffect(() => {
-        if (matches.length>0){
-            console.log("CHECKING",matches)
-            try {
-                const pattern = genex(matches);
-                if (pattern.count() < 1000) {
-                  let matches = pattern.generate();
-                  let _legalMatches = matches.filter((word) => /^[A-Za-z\d]*$/.test(word));
-                  let temp_dict = {}
-                  _legalMatches.map(async  match=>{
-                      let availability = await checkName(match)
-                      console.log("AVAILABILITY",availability)
-                      temp_dict = availability
-                      console.log("setting names",temp_dict)
-                      const temp_names = {...temp_dict}
-                      setNames(temp_names)
-                  })
-                }
-              } catch (error) {
-                setNames({});
-              }
+      useEffect( () => {
+        async function _proxyNameCheck(){
+            if (string.length>0){
+                console.log("CHECKING",string)
+                try {
+                    const availability = await checkName(string)
+                    console.log("availability",availability)
+                    let temp_dict = {}
+                    temp_dict = availability
+                    console.log("setting names",temp_dict)
+                    const temp_names = {...temp_dict}
+                    setNames(temp_names)
+                  } catch (error) {
+                    console.log(error)
+                    setNames({});
+                  }
+
         }
-      }, [matches]);
+        
+        
+        }
+        _proxyNameCheck();
+      }, [string]);
       useEffect(()=>{
         console.log("running output",names)
         setOutput({})
