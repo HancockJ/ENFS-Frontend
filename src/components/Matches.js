@@ -3,6 +3,7 @@ import "./Matches.css"
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import {  useSelector } from "react-redux";
+import axios from 'axios';
 
 export default function Matches({matches}) {
     const genex = require("genex");
@@ -10,9 +11,20 @@ export default function Matches({matches}) {
     const [names,setNames] = useState({})
     const [output,setOutput] = useState({})
     const checkName = async (name) => {
-        return blockchain.ethers.resolveName(name + ".eth").then((address) => {
-          return address
-        });
+        return axios.post('http://localhost:3000/v1/checkNames', {regex: name})
+    .then(response => {
+        console.log(response.data);
+        console.log("SUCCESS")
+        return response.data
+    })
+    .catch(error => {
+        console.log(error)
+        console.log("ERROR")
+        return null
+    })
+        // return blockchain.ethers.resolveName(name + ".eth").then((address) => {
+        //   return address
+        // });
       };
       useEffect(() => {
         if (matches.length>0){
@@ -25,7 +37,8 @@ export default function Matches({matches}) {
                   let temp_dict = {}
                   _legalMatches.map(async  match=>{
                       let availability = await checkName(match)
-                      temp_dict[match] = availability
+                      console.log("AVAILABILITY",availability)
+                      temp_dict = availability
                       console.log("setting names",temp_dict)
                       const temp_names = {...temp_dict}
                       setNames(temp_names)
