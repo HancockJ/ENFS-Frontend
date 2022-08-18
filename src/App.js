@@ -1,11 +1,15 @@
 import React from "react";
-import Web3Display from "./components/Web3Display";
+import Grid from "@mui/material/Grid";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   return (
-      <div className="App">
-        <Web3Display />
-      </div>
+      <Grid container alignItems="center" justifyContent="center" style={{marginTop: "20%"}} >
+          <h1 class="search-bar-title" > Ethereum Name Finding Service</h1>
+          <Grid item xs={12}>
+              <SearchBar />
+          </Grid>
+      </Grid>
   );
 }
 
