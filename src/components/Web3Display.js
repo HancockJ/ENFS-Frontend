@@ -9,48 +9,29 @@ import "./Web3Display.css"
 
 
 function Web3Display() {
-  const blockchain = useSelector((state) => state.blockchain);
-  const dispatch = useDispatch();
+  
 
   
-  const connectToProvider = () => {
-    return (
-      <button
-        onClick={async (e) => {
-          e.preventDefault();
-          dispatch(connectProvider());
-        }}
-      >
-        Connect To Provider
-      </button>
-    );
-  };
+  
 
   
-  return blockchain.ethers ? (
-    
-      <Grid container alignItems="center" justifyContent="center" style={{marginTop: "20%"}} >
+  return  (
+    <>
+   <div class="container">
+    <Grid container alignItems="center" justifyContent="center" >
         <h1 class="search-bar-title" > Ethereum Name Finding Service</h1>
         
         <Grid item xs={12}>
           <SearchBar />
         </Grid>
-        <Typography>
-          {blockchain.ethers.network ? (
-            <h5>
-              You are connected to the {blockchain.ethers.network.name} network.
-            </h5>
-          ) : null}
-        </Typography>
+        
         
       </Grid>
+      </div>
+      </>
+      
     
-  ) : (
-    <div>
-      <h3>Ethereum Name Finding Service</h3>
-      {connectToProvider()}
-    </div>
-  );
+  )
 }
 
 export default Web3Display;

@@ -62,7 +62,7 @@ export default function Matches({string}) {
                 {output[0] !== '' && output.length > 0 ? <p>This string yields {output.length} combinations.</p> : null}
                 <table class = "matches-table"><tr><th>ENS Domain</th><th>Availability</th></tr>
                 {Object.keys(output).map(match =>{
-                    return (<><tr><td key={match}>{match}.eth</td><td>{output[match]?output[match]:<a class= "purchase-link" href={"https://app.ens.domains/search/"+match}>Buy Now</a>}</td></tr></>)
+                    return (<><tr><td key={match}>{match}.eth</td><td>{output[match]?output[match].owner:<a class= "purchase-link" href={"https://app.ens.domains/search/"+match}>Buy Now</a>}</td></tr></>)
                 })}</table>
     </Grid>
 </Grid>
