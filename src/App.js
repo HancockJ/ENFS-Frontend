@@ -1,15 +1,32 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
-import SearchBar from "./components/SearchBar";
 
+import Web3Display from "./components/Web3Display";
+import AppBar from "./components/AppBar"
+import Footer from "./components/Footer"
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import "./App.css"
+
+const theme = createTheme({
+  palette: {
+    primary:{
+      main:'#EE6C4D',
+      light: '#EE6C4D',
+      dark: '#EE6C4D',
+    },
+    
+  },
+});
 function App() {
   return (
-      <Grid container alignItems="center" justifyContent="center" style={{marginTop: "20%"}} >
-          <h1 class="search-bar-title" > Ethereum Name Finding Service</h1>
-          <Grid item xs={12}>
-              <SearchBar />
-          </Grid>
-      </Grid>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <div class="app">
+         <AppBar />
+        <Web3Display />
+        <Footer />
+      </div>
+      </ThemeProvider>
   );
 }
 

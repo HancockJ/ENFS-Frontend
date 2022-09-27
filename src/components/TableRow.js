@@ -1,12 +1,18 @@
-import React, {useState} from "react";
-import "./SearchBar.css"
+import React, {useState, useEffect} from "react";
+import "./TableRow.css"
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Matches from "./Matches.js";
 
+export default function TableRow({row_data}) {
 
-export default function SearchBar() {
-    const [query, setQuery] = useState("");
+
+    const [rowItems, setRowItems] = useState({});
+
+    // useEffect( () => {
+    //     row_data.map(())
+        
+    //   }, [row_data]);
 
     return (  
 <>
