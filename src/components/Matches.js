@@ -1,16 +1,15 @@
 import React, {useState, useEffect} from "react";
 import "./Matches.css"
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
-import {  useSelector } from "react-redux";
 import axios from 'axios';
+import config from '../config.json';
 
 export default function Matches({string}) {
     
     const [names,setNames] = useState({})
     const [output,setOutput] = useState({})
     const checkName = async (name) => {
-        return axios.post('http://localhost:3000/v1/checkNames', {regex: name})
+        return axios.post(config.BACKEND_URL, {regex: name})
     .then(response => {
         console.log(response.data);
         console.log("SUCCESS")
@@ -25,7 +24,7 @@ export default function Matches({string}) {
       };
       useEffect( () => {
         async function _proxyNameCheck(){
-            if (string.length>0){
+            if (string.length>2){
                 console.log("CHECKING",string)
                 try {
                     const availability = await checkName(string)
@@ -39,7 +38,6 @@ export default function Matches({string}) {
                     console.log(error)
                     setNames({});
                   }
-
         }
         
         
