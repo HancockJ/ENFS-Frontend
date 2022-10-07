@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "./SearchBar.css"
 import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import Matches from "./Matches.js";
 
 

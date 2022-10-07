@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import "./AppBar.css";
 import Grid from "@mui/material/Grid";
-import Typography from "@mui/material/Typography";
-import Matches from "./Matches.js";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
