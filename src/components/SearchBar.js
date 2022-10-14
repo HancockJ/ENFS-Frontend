@@ -12,8 +12,17 @@ export default function SearchBar() {
 
 <Grid container align = "center" justify = "center" alignItems = "center" >
     <Grid item xs={12}>
-    <input class="search-box" type="text" placeholder="Enter Regex /<expression>/" onChange={event => {
-        setQuery(event.target.value)
+    <input class="search-box" type="text" placeholder="Enter Regex /<expression>/" onChange={event => { //wait one second before making changes to query
+        //create a timer for two seconds that gets cleared if the user types again
+        var timer
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+            setQuery(event.target.value);   
+        }, 2000);
+        
+    
+
+        
 }
     }/>
           
