@@ -4,3 +4,12 @@
     height: 3.5rem;
     box-shadow: 0 0 20px rgba(0,0, 0, 0.15);
 }
+#logo {
+    background-image: url('../static/images/ENFS.png');
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    max-width: 100%;
+    width: 240px;
+    height: 45px;
+}
