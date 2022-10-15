@@ -3,7 +3,6 @@ import "./AppBar.css";
 import Grid from "@mui/material/Grid";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import logo from "../static/images/ENFS.png";
 
 export default function AppBar() {
   return (
