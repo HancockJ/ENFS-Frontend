@@ -33,7 +33,8 @@ export default function AppBar() {
               justifyContent="flex-end"
               alignItems="flex-end"
             >
-              <Button variant="contained">API</Button>
+              <Button variant="contained"    
+              href='https://rapidapi.com/enfs-enfs-default/api/enfs/'>API</Button>
             </Box>
           </Grid>
         </Grid>
