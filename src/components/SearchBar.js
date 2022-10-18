@@ -15,24 +15,17 @@ export default function SearchBar() {
     <Grid item xs={12}>
     <input class="search-box" type="text" placeholder="Enter Regex /<expression>/" onChange={event => { 
         //create a timer for two seconds that gets cleared if the user types again
-        var timer
+        let timer
         clearTimeout(timer);
         timer = setTimeout(() => {
             setQuery(event.target.value);   
         }, 2000);
-        
-    
-
-        
-}
-    }/>
+    }}/>
           
     </Grid>
     <Grid item xs={12}>
           <Matches string={query} />
-        </Grid>
-
-
+    </Grid>
 </Grid>
     
 </>

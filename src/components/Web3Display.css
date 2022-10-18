@@ -28,10 +28,8 @@
     visibility: visible;
   }
   .container {
-    display: flex;
-  justify-content: center;
-  align-items: center;
-    height: 80vh;
+    /*display: flex;*/
+    /*height: 80vh;*/
     background-color: #F4F5F4;
     /* padding-bottom: 8.5rem;  */
     
