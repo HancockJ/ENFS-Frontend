@@ -9,7 +9,7 @@ import { DataGrid } from '@mui/x-data-grid';
 export default function Matches({ string }) {
 
     const [names, setNames] = useState({})
-    const [output, setOutput] = useState({})
+    // const [output, setOutput] = useState({})
     const [rows,setRows] = useState([])
     const columns = [
         // {field: 'id', headerName: 'Id', width: 130},
@@ -58,9 +58,9 @@ renderCell: (params) => {
         _proxyNameCheck();
     }, [string]);
     useEffect(() => {
-        setOutput({})
+        // setOutput({})
         if (Object.keys(names).length > 0) {
-            setOutput(names)
+            // setOutput(names)
             setRows([])
             
             // add an id to each name in the names object
