@@ -61,7 +61,8 @@ renderCell: (params) => {
         setOutput({})
         if (Object.keys(names).length > 0) {
             setOutput(names)
-            console.log("names",names)
+            setRows([])
+            
             // add an id to each name in the names object
             let temp_rows = []
             for (let name in names) {
@@ -72,12 +73,12 @@ renderCell: (params) => {
                 temp_rows.push(temp_row)
             }
             setRows(temp_rows)
-            console.log("names",temp_rows)
+            
 
            
         }
     }, [names])
-
+    if (rows.length > 0) {
     return (
         <>
             <Grid container align="center" justify="center" alignItems="center">
@@ -106,4 +107,6 @@ renderCell: (params) => {
 
         </>
     )
+            }
+            else {  return (<></>)}
 }
