@@ -97,7 +97,7 @@ renderCell: (params) => {
         columns={columns}
         // pageSize={10}
         // rowsPerPageOptions={[5]}
-        //autoHeight={true}
+        autoHeight={true}
         
       />
     </div>
