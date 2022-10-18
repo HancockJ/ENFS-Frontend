@@ -5,10 +5,10 @@ import "./Web3Display.css"
 function Web3Display() {
   return  (
     <>
-   <div class="container">
+   <div class="container" >
     <Grid container alignItems="center" justifyContent="center" >
         <h1 class="search-bar-title" > Ethereum Name Finding Service</h1>
-        <Grid item xs={12}>
+        <Grid item xs={12} >
           <SearchBar />
         </Grid>
       </Grid>

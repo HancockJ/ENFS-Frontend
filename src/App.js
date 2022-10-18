@@ -22,7 +22,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <div class="app">
-         <AppBar />
+        <AppBar />
         <Web3Display />
         <Footer />
       </div>
