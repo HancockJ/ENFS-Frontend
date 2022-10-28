@@ -6,9 +6,7 @@ import Box from "@mui/material/Box";
 
 export default function AppBar() {
   return (
-    <>
-      <div class="AppBar">
-       
+      <div className="AppBar">
         <Grid container align="center" justify="center" alignItems="center">  
           <Grid item xs={6}>
            <Box
@@ -52,6 +50,5 @@ export default function AppBar() {
           </Grid>
         </Grid> */}
       </div>
-    </>
   );
 }

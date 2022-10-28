@@ -21,12 +21,12 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <div class="app">
+      <div className="app">
         <AppBar />
         <Web3Display />
         <Footer />
       </div>
-      </ThemeProvider>
+    </ThemeProvider>
   );
 }
 

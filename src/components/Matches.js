@@ -17,7 +17,7 @@ export default function Matches({ string }) {
     {field: 'owner', headerName: 'Owner',flex: 1,
 renderCell: (params) => {
     let _url = `https://app.ens.domains/search/`+params.row.name
-    console.log("params",params)
+    // console.log("params",params)
     return (<>
     {params.value?params.value:<a href={_url}>Available</a>}
     

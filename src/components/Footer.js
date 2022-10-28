@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 export default function Footer() {
     return (<>
-                <div class="footer">
+                <div className="footer">
                     <hr></hr>
                     <Grid container align = "center" justify = "center" alignItems = "center">
                         <Grid item xs={12}>
