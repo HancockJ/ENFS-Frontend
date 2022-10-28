@@ -21,7 +21,6 @@ export default function SearchBar() {
     useEffect(() => {
         let interval = null;
         if (isActive) {
-            console.log(seconds)
             if (seconds > 0) {
                 interval = setInterval(() => {
                     setSeconds(seconds => seconds - 1);
