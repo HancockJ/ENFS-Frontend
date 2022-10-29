@@ -112,6 +112,11 @@ export default function Matches({ string }) {
                 }}
             >
                 <DataGrid
+                 initialState={{
+                    sorting: {
+                      sortModel: [{ field: 'name', sort: 'asc' }],
+                    },
+                  }}
                 rows={rows}
                 columns={columns}
                 autoHeight={true}
