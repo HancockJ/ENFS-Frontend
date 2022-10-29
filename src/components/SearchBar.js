@@ -44,6 +44,16 @@ export default function SearchBar() {
             />
         </Grid>
         <ButtonBoard query={partialQuery} resetQuery={resetQuery}/>
+        {
+            isActive ?
+                <Grid container alignItems="center" alignContent="center" flexDirection="row" spacing={2}>
+                    <Grid item xs={12}>
+                        <div class="loader"></div>
+                    </Grid>
+                </Grid>
+            :
+            null
+        }
         <Grid item xs={12}>
             <Matches string={query} />
         </Grid>
